@@ -12,33 +12,26 @@
   <style>
     :root {
       --purple: #a005ff;
-      --purple-dark: #4b007d;
-      --black: #030006;
+      --dark-purple: #26003f;
+      --black: #020003;
       --white: #ffffff;
-      --gray: #bfb8c9;
-      --card: rgba(20, 0, 35, 0.82);
-      --border: rgba(160, 5, 255, 0.55);
+      --gray: #cfc7d8;
+      --card: rgba(14, 0, 24, 0.88);
+      --border: rgba(160, 5, 255, 0.45);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       font-family: "Poppins", sans-serif;
-      background: radial-gradient(circle at top, #1b0030 0%, #050008 45%, #000 100%);
+      background: radial-gradient(circle at top, #210038 0%, #050008 42%, #000 100%);
       color: var(--white);
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     img {
       max-width: 100%;
@@ -54,9 +47,9 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      background: rgba(0, 0, 0, 0.88);
-      border-bottom: 1px solid var(--border);
+      background: rgba(0,0,0,.9);
       backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-inner {
@@ -67,58 +60,48 @@
       gap: 20px;
     }
 
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
     .nav-logo img {
-      height: 52px;
+      height: 54px;
       width: auto;
       border-radius: 10px;
     }
 
     .nav-links {
       display: flex;
-      gap: 24px;
+      gap: 22px;
       align-items: center;
       font-size: 13px;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
     }
 
-    .nav-links a:hover {
-      color: var(--purple);
-    }
+    .nav-links a:hover { color: var(--purple); }
 
     .btn {
       display: inline-flex;
-      align-items: center;
       justify-content: center;
-      gap: 10px;
+      align-items: center;
       background: linear-gradient(135deg, var(--purple), #6200b3);
+      color: white;
       padding: 13px 24px;
-      border-radius: 8px;
-      font-weight: 800;
+      border-radius: 9px;
+      font-weight: 900;
       text-transform: uppercase;
       font-size: 13px;
-      box-shadow: 0 0 24px rgba(160, 5, 255, 0.35);
-      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 0 26px rgba(160,5,255,.35);
+      border: 1px solid rgba(255,255,255,.14);
     }
 
     .btn.secondary {
-      background: rgba(255,255,255,.05);
+      background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.35);
     }
 
     .hero {
-      min-height: 650px;
+      position: relative;
+      min-height: 680px;
       display: grid;
       align-items: center;
-      position: relative;
       overflow: hidden;
       border-bottom: 1px solid var(--border);
     }
@@ -128,28 +111,25 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(90deg, rgba(0,0,0,.9), rgba(0,0,0,.45), rgba(0,0,0,.92)),
+        linear-gradient(90deg, rgba(0,0,0,.95), rgba(0,0,0,.52), rgba(0,0,0,.9)),
         url("team-photo-1.jpg") center/cover no-repeat;
-      opacity: 0.95;
     }
 
     .hero::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at 20% 50%, rgba(160,5,255,.32), transparent 32%),
-                  radial-gradient(circle at 90% 40%, rgba(160,5,255,.28), transparent 30%);
+      background:
+        radial-gradient(circle at 18% 45%, rgba(160,5,255,.34), transparent 30%),
+        radial-gradient(circle at 82% 35%, rgba(160,5,255,.25), transparent 30%);
       pointer-events: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 30px;
-      align-items: center;
-      padding: 80px 0;
+      padding: 90px 0;
+      max-width: 780px;
     }
 
     .eyebrow {
@@ -157,13 +137,13 @@
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 1px;
-      font-size: 20px;
       margin-bottom: 12px;
+      font-size: 18px;
     }
 
     h1 {
-      font-size: clamp(58px, 9vw, 120px);
-      line-height: .85;
+      font-size: clamp(58px, 10vw, 120px);
+      line-height: .84;
       margin: 0 0 20px;
       text-transform: uppercase;
       font-weight: 900;
@@ -176,33 +156,22 @@
     }
 
     .hero p {
-      max-width: 580px;
-      color: #f4eefb;
+      color: #f5effa;
       font-size: 18px;
-      line-height: 1.7;
+      line-height: 1.75;
+      max-width: 620px;
       margin-bottom: 28px;
     }
 
     .hero-buttons {
       display: flex;
-      flex-wrap: wrap;
       gap: 14px;
-    }
-
-    .hero-badge {
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-badge img {
-      max-height: 420px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 30px rgba(160,5,255,.75));
+      flex-wrap: wrap;
     }
 
     .features {
-      border-bottom: 1px solid var(--border);
       background: rgba(0,0,0,.72);
+      border-bottom: 1px solid var(--border);
     }
 
     .feature-grid {
@@ -213,17 +182,15 @@
 
     .feature {
       padding: 28px 22px;
-      border-right: 1px solid rgba(160,5,255,.35);
+      border-right: 1px solid rgba(160,5,255,.25);
     }
 
-    .feature:last-child {
-      border-right: none;
-    }
+    .feature:last-child { border-right: none; }
 
     .feature-icon {
       color: var(--purple);
-      font-size: 34px;
-      margin-bottom: 10px;
+      font-size: 32px;
+      margin-bottom: 8px;
     }
 
     .feature h3 {
@@ -236,36 +203,31 @@
       margin: 0;
       color: var(--gray);
       font-size: 13px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
-    section {
-      padding: 54px 0;
-    }
+    section { padding: 62px 0; }
 
     .section-title {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 32px;
     }
 
     .section-title h2 {
       margin: 0;
-      font-size: clamp(28px, 4vw, 42px);
+      font-size: clamp(30px, 4vw, 46px);
       text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
-    .section-title span {
-      color: var(--purple);
-    }
+    .section-title span { color: var(--purple); }
 
     .events-box {
       background: linear-gradient(135deg, rgba(160,5,255,.92), rgba(35,0,60,.96));
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 26px;
-      box-shadow: 0 0 42px rgba(160,5,255,.25);
       overflow: hidden;
+      box-shadow: 0 0 45px rgba(160,5,255,.25);
     }
 
     .split {
@@ -275,43 +237,19 @@
       align-items: center;
     }
 
-    .video-card {
+    .content-card,
+    .video-card,
+    .membership,
+    .video-tile {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 18px;
-      padding: 18px;
-      box-shadow: 0 0 30px rgba(160,5,255,.22);
-    }
-
-    .video-placeholder {
-      aspect-ratio: 16 / 9;
-      border-radius: 14px;
-      overflow: hidden;
-      background:
-        linear-gradient(rgba(0,0,0,.2), rgba(0,0,0,.6)),
-        url("team-photo-2.jpeg") center/cover no-repeat;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(255,255,255,.18);
-    }
-
-    .play {
-      height: 82px;
-      width: 82px;
-      border-radius: 50%;
-      background: rgba(255,255,255,.92);
-      color: var(--purple);
-      display: grid;
-      place-items: center;
-      font-size: 34px;
-      font-weight: 900;
-      box-shadow: 0 0 34px rgba(255,255,255,.35);
+      padding: 26px;
+      box-shadow: 0 0 30px rgba(160,5,255,.18);
     }
 
     .content-card {
-      background: rgba(0,0,0,.38);
-      border-left: 2px solid var(--purple);
-      padding: 10px 0 10px 28px;
+      border-left: 3px solid var(--purple);
     }
 
     .content-card h2 {
@@ -323,6 +261,39 @@
     .content-card p {
       color: var(--gray);
       line-height: 1.8;
+    }
+
+    .video-card img {
+      height: 360px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.15);
+      margin-bottom: 18px;
+    }
+
+    .shorts-frame {
+      max-width: 360px;
+      margin: 0 auto;
+      aspect-ratio: 9 / 16;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 2px solid var(--purple);
+      box-shadow: 0 0 34px rgba(160,5,255,.35);
+      background: #000;
+    }
+
+    .shorts-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
     }
 
     .mini-list {
@@ -338,8 +309,8 @@
     }
 
     .mini-item strong {
-      color: var(--white);
       display: block;
+      color: white;
       text-transform: uppercase;
       font-size: 14px;
     }
@@ -347,50 +318,6 @@
     .mini-item span {
       color: var(--gray);
       font-size: 13px;
-    }
-
-    .membership-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .membership {
-      background: rgba(10, 10, 12, .88);
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 16px;
-      padding: 26px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .membership.featured {
-      border-color: var(--purple);
-      box-shadow: 0 0 36px rgba(160,5,255,.35);
-    }
-
-    .membership h3 {
-      margin: 0 0 8px;
-      font-size: 22px;
-      text-transform: uppercase;
-    }
-
-    .membership p {
-      color: var(--gray);
-      min-height: 74px;
-      line-height: 1.6;
-    }
-
-    .price {
-      font-size: 36px;
-      font-weight: 900;
-      margin: 20px 0;
-    }
-
-    .price small {
-      font-size: 14px;
-      color: var(--gray);
-      font-weight: 400;
     }
 
     .gallery {
@@ -408,31 +335,67 @@
       box-shadow: 0 0 24px rgba(160,5,255,.22);
     }
 
+    .membership-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .membership.featured {
+      border-color: var(--purple);
+      box-shadow: 0 0 38px rgba(160,5,255,.35);
+    }
+
+    .membership h3 {
+      margin: 0 0 8px;
+      font-size: 22px;
+      text-transform: uppercase;
+    }
+
+    .membership p {
+      color: var(--gray);
+      min-height: 74px;
+      line-height: 1.6;
+    }
+
+    .price {
+      font-size: 34px;
+      font-weight: 900;
+      margin: 18px 0;
+    }
+
+    .price small {
+      font-size: 14px;
+      color: var(--gray);
+      font-weight: 400;
+    }
+
     footer {
       background: #030005;
       border-top: 1px solid var(--border);
-      padding: 36px 0;
+      padding: 40px 0;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      grid-template-columns: 1.3fr 1fr 1fr 1fr;
       gap: 30px;
-      align-items: start;
     }
 
     footer img {
       max-width: 210px;
       margin-bottom: 14px;
+      border-radius: 10px;
     }
 
     footer h4 {
-      color: var(--purple);
       margin: 0 0 12px;
+      color: var(--purple);
       text-transform: uppercase;
     }
 
-    footer p, footer a {
+    footer p,
+    footer a {
       color: var(--gray);
       font-size: 14px;
       line-height: 1.8;
@@ -447,43 +410,25 @@
     }
 
     @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-      }
+      .nav-links { display: none; }
 
-      .hero-content,
       .split,
+      .video-grid,
       .membership-grid,
       .gallery,
       .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-content {
-        padding: 70px 0 40px;
-      }
-
-      .hero-badge img {
-        max-height: 300px;
-      }
-
       .feature-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      h1 {
-        letter-spacing: -2px;
-      }
+      h1 { letter-spacing: -2px; }
     }
 
     @media (max-width: 560px) {
-      .feature-grid {
-        grid-template-columns: 1fr;
-      }
+      .feature-grid { grid-template-columns: 1fr; }
 
       .feature {
         border-right: none;
@@ -515,8 +460,9 @@
 
       <div class="nav-links">
         <a href="#">Home</a>
-        <a href="#pickup">Pickup Soccer</a>
+        <a href="#pickup">Pickup</a>
         <a href="#events">Events</a>
+        <a href="#videos">Videos</a>
         <a href="#memberships">Membership</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
@@ -528,22 +474,16 @@
 
   <header class="hero">
     <div class="container hero-content">
-      <div>
-        <div class="eyebrow">More Than A Game.</div>
-        <h1>We Are <span>OMNi.</span></h1>
-        <p>
-          Co-ed pickup soccer, competitive tournaments, fitness, and community
-          built for players of all levels in the Houston and Conroe area.
-        </p>
+      <div class="eyebrow">More Than A Game.</div>
+      <h1>We Are <span>OMNi.</span></h1>
+      <p>
+        Co-ed pickup soccer, tournaments, fitness, and community built for players
+        of all levels in the Houston, Conroe, and The Woodlands area.
+      </p>
 
-        <div class="hero-buttons">
-          <a class="btn" href="#events">Join Pickup →</a>
-          <a class="btn secondary" href="#events">View Events</a>
-        </div>
-      </div>
-
-      <div class="hero-badge">
-        <img src="logo-banner.png" alt="OMNi Wolf Logo">
+      <div class="hero-buttons">
+        <a class="btn" href="#events">Join Pickup →</a>
+        <a class="btn secondary" href="#videos">Watch Pickup Video</a>
       </div>
     </div>
   </header>
@@ -553,25 +493,25 @@
       <div class="feature">
         <div class="feature-icon">⚽</div>
         <h3>Co-Ed Pickup</h3>
-        <p>All levels welcome. Everyone plays.</p>
+        <p>Open play for adults 18+ with all levels welcome.</p>
       </div>
 
       <div class="feature">
         <div class="feature-icon">🏆</div>
         <h3>Tournaments</h3>
-        <p>Compete. Win. Make history.</p>
+        <p>Competitive events, community cups, and future leagues.</p>
       </div>
 
       <div class="feature">
         <div class="feature-icon">💪</div>
-        <h3>Fitness & Recovery</h3>
-        <p>Train hard. Recover. Stay ready.</p>
+        <h3>Fitness</h3>
+        <p>Soccer, movement, recovery, and future gym training.</p>
       </div>
 
       <div class="feature">
         <div class="feature-icon">👥</div>
         <h3>Community</h3>
-        <p>More than soccer. We’re a family.</p>
+        <p>Come for soccer. Stay for the people.</p>
       </div>
     </div>
   </div>
@@ -593,14 +533,8 @@
   <section id="pickup">
     <div class="container split">
       <div class="video-card">
-        <h2>Watch OMNi Pickup In Action</h2>
-
-        <a href="https://www.youtube.com/" target="_blank" class="video-placeholder">
-          <div class="play">▶</div>
-        </a>
-
-        <br>
-        <a class="btn" href="https://www.youtube.com/" target="_blank">Watch On YouTube</a>
+        <img src="team-photo-2.jpeg" alt="OMNi co-ed pickup soccer">
+        <a class="btn" href="#events">Reserve Your Spot</a>
       </div>
 
       <div class="content-card">
@@ -641,15 +575,46 @@
     </div>
   </section>
 
+  <section id="videos">
+    <div class="container">
+      <div class="section-title">
+        <h2>Latest <span>OMNi Videos</span></h2>
+      </div>
+
+      <div class="video-grid">
+        <div class="content-card">
+          <div class="eyebrow">Pickup Highlight</div>
+          <h2>Co-Ed Pickup In Action</h2>
+          <p>
+            Get a feel for the OMNi pickup experience — high energy, community-driven,
+            and open to players who want to enjoy the game together.
+          </p>
+          <a class="btn" href="https://youtube.com/shorts/K-U_BcJOxtA" target="_blank">View On YouTube</a>
+        </div>
+
+        <div class="video-tile">
+          <div class="shorts-frame">
+            <iframe
+              src="https://www.youtube.com/embed/K-U_BcJOxtA"
+              title="OMNi Pickup Soccer"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="about">
     <div class="container split">
       <div class="content-card">
         <div class="eyebrow">About OMNi</div>
         <h2>We’re More Than A Game</h2>
         <p>
-          OMNi is a soccer and fitness community in the Houston and Conroe area
-          built for players of all levels. Our mission is simple: connect
-          through the game, compete with passion, and grow together.
+          OMNi is a soccer and fitness community built around connection,
+          competition, and growth. Our mission is to create a place where people
+          can play, train, compete, and belong.
         </p>
 
         <div class="mini-list">
@@ -665,7 +630,7 @@
             <div>🏟️</div>
             <div>
               <strong>Future Facility</strong>
-              <span>Indoor field, gym, turf, recovery, and more.</span>
+              <span>Indoor turf, gym, recovery, events, and more.</span>
             </div>
           </div>
         </div>
@@ -727,10 +692,9 @@
       <div>
         <h4>Locations</h4>
         <p>
-          Hattrick Indoor<br>
-          Conroe, TX<br><br>
-          OMNi Gym Coming Soon<br>
-          The Woodlands, TX
+          Conroe, TX<br>
+          The Woodlands, TX<br>
+          Houston Area
         </p>
       </div>
 
