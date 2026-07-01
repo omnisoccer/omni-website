@@ -1,1 +1,14 @@
+.hero-title {
+  width: 100%;
+  max-width: 680px;
+  margin-bottom: 26px;
+  filter: drop-shadow(0 0 28px rgba(160,5,255,.55));
+}
 
+.hero .tagline {
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.7;
+  max-width: 720px;
+  margin-bottom: 30px;
+}
