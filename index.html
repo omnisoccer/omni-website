@@ -422,13 +422,120 @@
     }
 
     @media (max-width: 560px) {
-      .feature-grid { grid-template-columns: 1fr; }
+  body {
+    overflow-x: hidden;
+  }
 
-      .feature {
-        border-right: 0;
-        border-bottom: 1px solid rgba(160,5,255,.25);
-      }
+  .container {
+    width: 92%;
+  }
 
+  .nav-inner {
+    padding: 10px 0;
+  }
+
+  .crest {
+    width: 46px;
+    height: 46px;
+  }
+
+  .nav-wordmark {
+    display: block;
+    height: 32px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .top-strip {
+    font-size: 11px;
+    line-height: 1.5;
+    padding: 9px 12px;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 70px 0 55px;
+    text-align: center;
+  }
+
+  .hero-content {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    max-width: 100%;
+    margin: 0 auto 22px;
+  }
+
+  .tagline {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 14px 18px;
+  }
+
+  .feature-grid,
+  .split,
+  .video-grid,
+  .shop-grid,
+  .gallery,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature {
+    border-right: 0;
+    border-bottom: 1px solid rgba(160,5,255,.25);
+    padding: 22px 18px;
+  }
+
+  section {
+    padding: 42px 0;
+  }
+
+  .section-title h2 {
+    font-size: 32px;
+  }
+
+  .card {
+    padding: 22px;
+  }
+
+  .card h2 {
+    font-size: 28px;
+  }
+
+  .pickup-img,
+  .shop-img,
+  .gallery img {
+    height: 260px;
+  }
+
+  .box {
+    padding: 12px;
+    border-radius: 16px;
+  }
+
+  .shorts-frame {
+    max-width: 300px;
+  }
+
+  .footer-brand {
+    align-items: flex-start;
+  }
+}
       .hero-buttons { flex-direction: column; }
       .btn { width: 100%; }
       .box { padding: 14px; }
