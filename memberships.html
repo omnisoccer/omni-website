@@ -1,5 +1,174 @@
-<!-- Sweatpals widget begin -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memberships | OMNi Soccer Community</title>
 
-<script src="https://sweatpals.com/static/embed/community/membership/list-v2/script.js?communityUsername=omnisoccerandfitness&membershipTiersJson=%5B%223a311bb7-bc63-4dd1-bbf4-dc96302ab707%22%2C%22ee7283da-5ed5-4e64-aa05-c84b4d747ed4%22%5D&enableAutoEmbed=true&primaryColorHex=100c12&secondaryColorHex=fefcfc&borderColorHex=E3DFDF&backgroundColorHex=700fac&cardBackgroundColorHex=FFFFFF&buttonColorHex=000000&fontFamily=Poppins"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Teko:wght@500;600;700&display=swap" rel="stylesheet">
 
-<!-- Sweatpals widget end -->
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: radial-gradient(circle at top, #26003f 0%, #07000d 45%, #000 100%);
+      color: white;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    .nav {
+      background: rgba(0,0,0,.94);
+      border-bottom: 1px solid rgba(160,5,255,.45);
+      padding: 12px 0;
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .crest-wrap {
+      background: #000;
+      border: 1px solid rgba(160,5,255,.45);
+      border-radius: 14px;
+      padding: 6px;
+    }
+
+    .crest {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+    }
+
+    .wordmark {
+      height: 40px;
+      width: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #a005ff, #6200b3);
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 900;
+      text-transform: uppercase;
+      font-size: 13px;
+      box-shadow: 0 0 28px rgba(160,5,255,.38);
+    }
+
+    .hero {
+      padding: 70px 0 40px;
+      text-align: center;
+    }
+
+    .hero-title {
+      max-width: 650px;
+      margin: 0 auto 24px;
+      filter: drop-shadow(0 0 25px rgba(160,5,255,.45));
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      text-transform: uppercase;
+      margin: 0 0 12px;
+    }
+
+    p {
+      color: #d7cde1;
+      line-height: 1.7;
+      max-width: 720px;
+      margin: 0 auto 24px;
+    }
+
+    .widget-box {
+      background: #700fac;
+      border: 1px solid rgba(160,5,255,.45);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: 0 0 45px rgba(160,5,255,.25);
+      overflow: hidden;
+      margin-bottom: 70px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(160,5,255,.45);
+      padding: 36px 0;
+      text-align: center;
+      color: #d7cde1;
+    }
+
+    @media (max-width: 560px) {
+      .wordmark { height: 32px; }
+      .crest { width: 46px; height: 46px; }
+      .hero { padding: 45px 0 30px; }
+      .widget-box { padding: 12px; border-radius: 16px; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="index.html">
+        <div class="crest-wrap">
+          <img class="crest" src="logo-crest.jpeg" alt="OMNi Wolf Crest">
+        </div>
+        <img class="wordmark" src="logo-main.jpeg" alt="OMNi Soccer Community">
+      </a>
+
+      <a class="btn" href="index.html">Back Home</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <img class="hero-title" src="join-the-pack-v3.jpeg" alt="More Than A Game. Join The Pack.">
+
+        <h1>Choose Your Membership</h1>
+        <p>
+          Play more. Save more. Be part of something bigger.
+          Choose the OMNi membership that fits how you play.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container widget-box">
+        <!-- Sweatpals widget begin -->
+        <script src="https://sweatpals.com/static/embed/community/membership/list-v2/script.js?communityUsername=omnisoccerandfitness&membershipTiersJson=%5B%223a311bb7-bc63-4dd1-bbf4-dc96302ab707%22%2C%22ee7283da-5ed5-4e64-aa05-c84b4d747ed4%22%5D&enableAutoEmbed=true&primaryColorHex=100c12&secondaryColorHex=fefcfc&borderColorHex=E3DFDF&backgroundColorHex=700fac&cardBackgroundColorHex=FFFFFF&buttonColorHex=000000&fontFamily=Poppins"></script>
+        <!-- Sweatpals widget end -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>More Than A Game. Join The Pack.</p>
+      <p><a href="mailto:omnisocialtx@gmail.com">omnisocialtx@gmail.com</a> • <a href="https://www.instagram.com/omnisocialtx" target="_blank">@omnisocialtx</a></p>
+    </div>
+  </footer>
+
+</body>
+</html>
