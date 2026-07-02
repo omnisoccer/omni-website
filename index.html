@@ -13,7 +13,6 @@
     :root {
       --purple: #a005ff;
       --purple2: #700fac;
-      --black: #030005;
       --white: #ffffff;
       --muted: #d7cde1;
       --border: rgba(160, 5, 255, 0.45);
@@ -28,6 +27,7 @@
       font-family: "Poppins", sans-serif;
       background: radial-gradient(circle at top, #26003f 0%, #07000d 45%, #000 100%);
       color: var(--white);
+      overflow-x: hidden;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -51,14 +51,15 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 0;
+      padding: 12px 0;
       gap: 20px;
+      position: relative;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
     }
 
     .crest-wrap {
@@ -70,33 +71,44 @@
     }
 
     .crest {
-      width: 58px;
-      height: 58px;
+      width: 56px;
+      height: 56px;
       object-fit: contain;
     }
 
     .nav-wordmark {
-      height: 42px;
+      height: 40px;
       width: auto;
       object-fit: contain;
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 16px;
       font-size: 12px;
       font-weight: 800;
       text-transform: uppercase;
+      align-items: center;
     }
 
     .nav-links a:hover { color: var(--purple); }
+
+    .menu-toggle { display: none; }
+
+    .menu-icon {
+      display: none;
+      font-size: 30px;
+      font-weight: 900;
+      cursor: pointer;
+      color: white;
+    }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       background: linear-gradient(135deg, var(--purple), #6200b3);
-      padding: 13px 24px;
+      padding: 14px 24px;
       border-radius: 10px;
       font-weight: 900;
       text-transform: uppercase;
@@ -153,13 +165,13 @@
       position: relative;
       z-index: 2;
       max-width: 820px;
-      padding: 90px 0;
+      padding: 80px 0;
     }
 
     .hero-title {
       width: 100%;
       max-width: 700px;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
       filter: drop-shadow(0 0 25px rgba(160,5,255,.45));
     }
 
@@ -168,7 +180,7 @@
       font-size: 20px;
       line-height: 1.7;
       max-width: 720px;
-      margin-bottom: 30px;
+      margin-bottom: 28px;
     }
 
     .hero-buttons {
@@ -237,6 +249,15 @@
       overflow: hidden;
     }
 
+    .membership-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 18px;
+      box-shadow: 0 0 45px rgba(160,5,255,.25);
+      overflow: hidden;
+    }
+
     .split,
     .video-grid,
     .shop-grid {
@@ -252,6 +273,14 @@
       border-radius: 20px;
       padding: 28px;
       box-shadow: 0 0 30px rgba(160,5,255,.18);
+    }
+
+    .eyebrow {
+      color: var(--purple);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
     }
 
     .card h2 {
@@ -315,19 +344,31 @@
       border: 0;
     }
 
-    .gallery {
+    .vision-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
+      margin-top: 28px;
     }
 
-    .gallery img {
-      height: 360px;
-      width: 100%;
-      object-fit: cover;
+    .vision-card {
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(160,5,255,.32);
       border-radius: 18px;
-      border: 1px solid var(--border);
-      box-shadow: 0 0 24px rgba(160,5,255,.22);
+      padding: 22px;
+    }
+
+    .vision-card h3 {
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      font-size: 17px;
+    }
+
+    .vision-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
     }
 
     .final-cta {
@@ -349,7 +390,7 @@
 
     .final-cta p {
       color: var(--muted);
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 auto 24px;
       line-height: 1.8;
     }
@@ -407,34 +448,138 @@
     }
 
     @media (max-width: 950px) {
-      .nav-wordmark,
-      .nav-links { display: none; }
+      .nav-wordmark { height: 34px; }
+
+      .nav-links {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        background: rgba(0,0,0,.98);
+        border-bottom: 1px solid var(--border);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+        gap: 0;
+      }
+
+      .nav-links a {
+        padding: 14px 10px;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+      }
+
+      .menu-icon { display: block; }
+
+      .menu-toggle:checked ~ .nav-links {
+        display: flex;
+      }
 
       .split,
       .video-grid,
       .shop-grid,
-      .gallery,
       .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .feature-grid { grid-template-columns: 1fr 1fr; }
+      .feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .vision-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 560px) {
-      .feature-grid { grid-template-columns: 1fr; }
+      .container { width: 92%; }
+
+      .nav-inner { padding: 10px 0; }
+
+      .crest {
+        width: 46px;
+        height: 46px;
+      }
+
+      .nav-wordmark {
+        height: 32px;
+      }
+
+      .top-strip {
+        font-size: 11px;
+        line-height: 1.5;
+        padding: 9px 12px;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 58px 0 46px;
+        text-align: center;
+      }
+
+      .hero-content {
+        padding: 0;
+        max-width: 100%;
+      }
+
+      .hero-title {
+        max-width: 100%;
+        margin: 0 auto 22px;
+      }
+
+      .tagline {
+        font-size: 15px;
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 14px 18px;
+      }
+
+      .feature-grid,
+      .vision-grid {
+        grid-template-columns: 1fr;
+      }
 
       .feature {
         border-right: 0;
         border-bottom: 1px solid rgba(160,5,255,.25);
+        padding: 22px 18px;
       }
 
-      .hero-buttons { flex-direction: column; }
-      .btn { width: 100%; }
-      .box { padding: 14px; }
-      .hero { min-height: 640px; }
-      .crest { width: 50px; height: 50px; }
-      .hero-title { max-width: 100%; }
+      section { padding: 42px 0; }
+
+      .section-title h2 { font-size: 32px; }
+
+      .card { padding: 22px; }
+
+      .card h2 { font-size: 28px; }
+
+      .pickup-img,
+      .shop-img {
+        height: 260px;
+      }
+
+      .box {
+        padding: 12px;
+        border-radius: 16px;
+      }
+
+      .membership-box {
+        padding: 10px;
+        border-radius: 16px;
+      }
+
+      .shorts-frame { max-width: 300px; }
+
+      .footer-brand { align-items: flex-start; }
     }
   </style>
 </head>
@@ -450,18 +595,20 @@
         <img class="nav-wordmark" src="logo-main.jpeg" alt="OMNi Soccer Community">
       </a>
 
+      <input type="checkbox" id="menu-toggle" class="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">☰</label>
+
       <div class="nav-links">
         <a href="#">Home</a>
         <a href="#pickup">Pickup</a>
         <a href="#events">Events</a>
-        <a href="#memberships">Memberships</a>
-        <a href="#shop">Shop</a>
         <a href="#videos">Videos</a>
+        <a href="#shop">Shop</a>
         <a href="#about">About</a>
+        <a href="#memberships">Memberships</a>
+        <a href="#vision">The Vision</a>
         <a href="#contact">Contact</a>
       </div>
-
-      <a class="btn" href="#events">Join Pickup</a>
     </div>
   </nav>
 
@@ -474,13 +621,11 @@
       <img class="hero-title" src="join-the-pack-v3.jpeg" alt="More Than A Game. Join The Pack.">
 
       <p class="tagline">
-        North Houston's soccer community for adults 18+ to play, connect, compete, and belong.
-        <br><br>
-        Weekly co-ed pickup • Leagues • Tournaments • Fitness • Community
+        Weekly pickup soccer for adults 18+ across The Woodlands, Conroe, Tomball, and North Houston.
       </p>
 
       <div class="hero-buttons">
-        <a class="btn" href="#events">Join Today’s Pickup →</a>
+        <a class="btn" href="#events">Play Tonight</a>
         <a class="btn secondary" href="#memberships">Become A Member</a>
       </div>
     </div>
@@ -514,20 +659,6 @@
     </div>
   </div>
 
-  <section id="events">
-    <div class="container">
-      <div class="section-title">
-        <h2>Find Your <span>Next Game</span></h2>
-      </div>
-
-      <div class="box">
-        <!-- Sweatpals widget begin -->
-        <script src="https://sweatpals.com/static/embed/community/events/script.js?communityUsername=omnisoccerandfitness&defaultView=tile&viewsJson=%5B%22tile%22%2C%22list%22%2C%22calendar%22%5D&filtersJson=%5B%22Location%22%2C%22date-picker%22%5D&showDescription=true&directToCheckout=false&enableAutoEmbed=true&primaryColorHex=000000&secondaryColorHex=ffffff&backgroundColorHex=700fac&fontFamily=Poppins"></script>
-        <!-- Sweatpals widget end -->
-      </div>
-    </div>
-  </section>
-
   <section id="pickup">
     <div class="container split">
       <div>
@@ -544,29 +675,9 @@
         </p>
 
         <div class="mini-list">
-          <div class="mini-item">
-            <div>💜</div>
-            <div>
-              <strong>Community First</strong>
-              <span>Play the game, meet people, and build real connections.</span>
-            </div>
-          </div>
-
-          <div class="mini-item">
-            <div>⚽</div>
-            <div>
-              <strong>All Skill Levels</strong>
-              <span>Beginner to elite players are welcome.</span>
-            </div>
-          </div>
-
-          <div class="mini-item">
-            <div>🐺</div>
-            <div>
-              <strong>Join The Pack</strong>
-              <span>Come for soccer. Stay for the people.</span>
-            </div>
-          </div>
+          <div class="mini-item"><div>💜</div><div><strong>Community First</strong><span>Play the game, meet people, and build real connections.</span></div></div>
+          <div class="mini-item"><div>⚽</div><div><strong>All Skill Levels</strong><span>Beginner to elite players are welcome.</span></div></div>
+          <div class="mini-item"><div>🐺</div><div><strong>Join The Pack</strong><span>Come for soccer. Stay for the people.</span></div></div>
         </div>
 
         <br>
@@ -575,36 +686,14 @@
     </div>
   </section>
 
-  <section id="memberships">
+  <section id="events">
     <div class="container">
       <div class="section-title">
-        <h2>Choose Your <span>Membership</span></h2>
+        <h2>Find Your <span>Next Game</span></h2>
       </div>
 
       <div class="box">
-        <!-- Sweatpals widget begin -->
-        <script src="https://sweatpals.com/static/embed/community/membership/list-v2/script.js?communityUsername=omnisoccerandfitness&membershipTiersJson=%5B%223a311bb7-bc63-4dd1-bbf4-dc96302ab707%22%2C%22ee7283da-5ed5-4e64-aa05-c84b4d747ed4%22%5D&enableAutoEmbed=true&primaryColorHex=faf9f9&secondaryColorHex=f4f0f0&borderColorHex=E3DFDF&backgroundColorHex=700fac&cardBackgroundColorHex=FFFFFF&buttonColorHex=000000&fontFamily=Teko"></script>
-        <!-- Sweatpals widget end -->
-      </div>
-    </div>
-  </section>
-
-  <section id="shop">
-    <div class="container shop-grid">
-      <div class="card">
-        <div class="eyebrow">Official OMNi Gear</div>
-        <h2>Wear The Pack</h2>
-        <p>
-          Represent OMNi on and off the field with official jerseys, training apparel,
-          and exclusive OMNi gear.
-        </p>
-        <a class="btn" href="https://stimulusathletic.com/collections/omni-fc-wolves" target="_blank">
-          Shop OMNi Gear
-        </a>
-      </div>
-
-      <div>
-        <img class="shop-img" src="team-photo-1.jpg" alt="OMNi Soccer Community gear">
+        <script src="https://sweatpals.com/static/embed/community/events/script.js?communityUsername=omnisoccerandfitness&defaultView=tile&viewsJson=%5B%22list%22%2C%22calendar%22%2C%22tile%22%5D&filtersJson=%5B%22Location%22%2C%22date-picker%22%5D&showDescription=true&directToCheckout=false&enableAutoEmbed=true&primaryColorHex=100c12&secondaryColorHex=fefcfc&backgroundColorHex=700fac&buttonColorHex=000000&fontFamily=Poppins"></script>
       </div>
     </div>
   </section>
@@ -620,8 +709,8 @@
           <div class="eyebrow">Watch OMNi</div>
           <h2>Co-Ed Pickup Highlight</h2>
           <p>
-            Get a feel for the OMNi pickup experience — high energy,
-            community-driven, and built for players who want to enjoy the game together.
+            See the OMNi pickup experience in action — high energy, community-driven,
+            and built for players who want to enjoy the game together.
           </p>
           <a class="btn" href="https://youtube.com/shorts/K-U_BcJOxtA" target="_blank">View On YouTube</a>
         </div>
@@ -640,26 +729,91 @@
     </div>
   </section>
 
+  <section id="shop">
+    <div class="container shop-grid">
+      <div>
+        <img class="shop-img" src="team-photo-1.jpg" alt="OMNi Soccer Community gear">
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Official OMNi Gear</div>
+        <h2>Wear The Pack</h2>
+        <p>
+          Represent OMNi on and off the field with official jerseys, training apparel,
+          and exclusive OMNi gear.
+        </p>
+        <a class="btn" href="https://stimulusathletic.com/collections/omni-fc-wolves" target="_blank">
+          Shop OMNi Gear
+        </a>
+      </div>
+    </div>
+  </section>
+
   <section id="about">
     <div class="container split">
       <div class="card">
         <div class="eyebrow">About OMNi</div>
-        <h2>More Than A Pickup Group</h2>
+        <h2>Built For Players. Powered By Community.</h2>
         <p>
-          OMNi started as a soccer community and is growing into a full experience.
-          Right now, we bring people together through weekly pickup, occasional
-          leagues, tournaments, and social events across The Woodlands, Conroe,
-          Tomball, and North Houston.
+          OMNi Soccer Community brings adults together through weekly pickup soccer,
+          leagues, tournaments, and events across North Houston.
         </p>
         <p>
-          The long-term goal is to create a permanent OMNi home where people can
-          come to play, socialize, train, recover, and get their workout on.
+          Whether you're stepping onto the field for the first time or you've been playing
+          for years, OMNi is a place to compete, connect, stay active, and belong.
         </p>
       </div>
 
-      <div class="gallery">
-        <img src="team-photo-1.jpg" alt="OMNi team photo">
-        <img src="team-photo-2.jpeg" alt="OMNi pickup soccer group">
+      <div>
+        <img class="pickup-img" src="team-photo-2.jpeg" alt="OMNi pickup soccer group">
+      </div>
+    </div>
+  </section>
+
+  <section id="memberships">
+    <div class="container">
+      <div class="section-title">
+        <h2>Become An <span>OMNi Member</span></h2>
+      </div>
+
+      <div class="card" style="margin-bottom:22px;text-align:center;">
+        <p>
+          Play more. Save more. Be part of something bigger.
+        </p>
+      </div>
+
+      <div class="membership-box">
+        <script src="https://sweatpals.com/static/embed/community/membership/list-v2/script.js?communityUsername=omnisoccerandfitness&membershipTiersJson=%5B%223a311bb7-bc63-4dd1-bbf4-dc96302ab707%22%2C%22ee7283da-5ed5-4e64-aa05-c84b4d747ed4%22%5D&enableAutoEmbed=true&primaryColorHex=100c12&secondaryColorHex=656565&borderColorHex=E3DFDF&backgroundColorHex=FFFFFF&cardBackgroundColorHex=FFFFFF&buttonColorHex=000000&fontFamily=Poppins"></script>
+      </div>
+    </div>
+  </section>
+
+  <section id="vision">
+    <div class="container">
+      <div class="section-title">
+        <h2>The <span>Vision</span></h2>
+      </div>
+
+      <div class="card">
+        <h2>Tomorrow, We’re Building Something Bigger.</h2>
+        <p>
+          OMNi started with one goal: to bring people together through soccer.
+          Today, we're building North Houston's soccer community through weekly pickup,
+          leagues, tournaments, and events.
+        </p>
+        <p>
+          Tomorrow, we're building a permanent home where people can play, train,
+          recover, compete, and connect.
+        </p>
+
+        <div class="vision-grid">
+          <div class="vision-card"><h3>⚽ Indoor Soccer</h3><p>Year-round pickup, leagues, and tournaments in a dedicated facility.</p></div>
+          <div class="vision-card"><h3>💪 Fitness Center</h3><p>Strength and conditioning for soccer players and everyday athletes.</p></div>
+          <div class="vision-card"><h3>🧊 Recovery Zone</h3><p>Recovery, wellness, stretching, cold plunge, and sauna concepts.</p></div>
+          <div class="vision-card"><h3>🏆 Leagues & Tournaments</h3><p>Competitive and social play for multiple levels and formats.</p></div>
+          <div class="vision-card"><h3>🎓 Training Programs</h3><p>Skills development, private coaching, and fitness-based training.</p></div>
+          <div class="vision-card"><h3>☕ Community Hub</h3><p>A place to meet teammates, watch matches, and build lasting connections.</p></div>
+        </div>
       </div>
     </div>
   </section>
@@ -668,8 +822,9 @@
     <div class="container">
       <h2>Ready To Join The Pack?</h2>
       <p>
-        Whether you're brand new to soccer or have played your whole life,
-        OMNi gives you a place to play, connect, compete, and belong.
+        Every game played. Every member who joins. Every partnership we build.
+        Every milestone we reach. Together, we're creating North Houston's home
+        for soccer, fitness, and community.
       </p>
       <a class="btn" href="#events">Find Your Next Game</a>
     </div>
@@ -682,24 +837,17 @@
           <img class="footer-crest" src="logo-crest.jpeg" alt="OMNi Wolf Crest">
           <img class="footer-wordmark" src="logo-main.jpeg" alt="OMNi Soccer Community">
         </div>
-        <p>More than a game. North Houston’s soccer community.</p>
+        <p>More Than A Game. Join The Pack.</p>
       </div>
 
       <div>
         <h4>Follow Us</h4>
-        <p>
-          <a href="https://www.instagram.com/omnisocialtx" target="_blank">@omnisocialtx</a>
-        </p>
+        <p><a href="https://www.instagram.com/omnisocialtx" target="_blank">@omnisocialtx</a></p>
       </div>
 
       <div>
         <h4>Areas Served</h4>
-        <p>
-          The Woodlands<br>
-          Conroe<br>
-          Tomball<br>
-          North Houston
-        </p>
+        <p>The Woodlands<br>Conroe<br>Tomball<br>North Houston</p>
       </div>
 
       <div>
